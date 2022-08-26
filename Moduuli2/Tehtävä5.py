@@ -12,6 +12,10 @@ leiviskapaino = leiviska*float(leiviskat)
 
 grammatyheensa = luotipaino+naulapaino+leiviskapaino
 
+#2954595 / 1000 => 29.54595
+#2954595 // 1000 => 29.0
+#2954595 % 1000 => 54595
+
 kiloiks = grammatyheensa//1000
 grammat = f'{(grammatyheensa/1000-kiloiks)*1000:.2f}'
 
