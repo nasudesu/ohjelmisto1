@@ -1,9 +1,9 @@
 
 
-pintaala = input('Ympyrän säde: ')
+pintaala = input('Ympyran sade: ')
 pintaala = int(pintaala)
-säde = (pintaala*2*3.14)
+sade = (pintaala*2*3.14)
 
-print('Ympyrän pintaala on: ' + str(säde))
+print('Ympyran pintaala on: ' + str(sade))
 
 
