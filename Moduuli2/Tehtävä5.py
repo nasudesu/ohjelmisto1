@@ -1,18 +1,18 @@
-leiviskät = input('anna leiviskät: ')
+leiviskat = input('anna leiviskat: ')
 naulat = input('anna naulat: ')
 luodit = input('anna luodit: ')
 
 luoti = 13.3
 naula = 32*luoti
-leiviskä = 20*naula
+leiviska = 20*naula
 
 luotipaino = luoti*float(luodit)
 naulapaino = naula*float(naulat)
-leiviskäpaino = leiviskä*float(leiviskät)
+leiviskapaino = leiviska*float(leiviskat)
 
-grammatyheensä = luotipaino+naulapaino+leiviskäpaino
+grammatyheensa = luotipaino+naulapaino+leiviskapaino
 
-kiloiks = grammatyheensä//1000
-grammat = f'{(grammatyheensä/1000-kiloiks)*1000:.2f}'
+kiloiks = grammatyheensa//1000
+grammat = f'{(grammatyheensa/1000-kiloiks)*1000:.2f}'
 
 print(f'Massa nykymittojen mukaan: {int(kiloiks)} kilogrammaa ja {grammat} grammaa. ')
