@@ -1,6 +1,6 @@
 
 
-valid_username = "Python"
+valid_username = "python"
 valid_password = "rules"
 tryCount = 0
 maxTries = 5
