@@ -68,3 +68,6 @@ print("Kiitos Kun käytit Lääkeohjelmaa")
 
 #Muuttuja4 = input("Kirjota numero")
 #String tyyppinen, jos halutaan vertailla suuruutta tai laske jotain
+
+
+
