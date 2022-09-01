@@ -5,7 +5,6 @@ valid_password = "rules"
 tryCount = 0
 maxTries = 5
 while tryCount < maxTries:
-    #tryCount = tryCount +1
     tryCount += 1
     input_username = input("käyttis? ")
     input_password = input("salis? ")
@@ -13,5 +12,3 @@ while tryCount < maxTries:
         print("Terve")
         break
     print("Virheellinen kiirjautumistiedot yritä uudellee")
-else:
-    ("Pääsy evätty")

@@ -12,7 +12,7 @@
 #print("kahvit maksettu kokonaan")
 
 #while esim 2 "ohjelma valikko"
-#  command = command.lower()
+# command = command.lower()
 # while not (command == "lopeta" or command == "Lopeta"):
 
 #command = ""
