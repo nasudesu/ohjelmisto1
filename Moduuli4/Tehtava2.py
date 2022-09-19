@@ -5,6 +5,6 @@ while tuumat >= 0:
     tuumat = float(input("Anna tuuma: "))
     cm = tuumat * 2.54
     if tuumat >= 0:
-     print(cm)
+        print(cm)
 else:
      print("Väärä numero")
