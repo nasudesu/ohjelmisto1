@@ -1,9 +1,6 @@
 import random
 
 
-
-
-
 def silmaluku():
     return random.randint(1, 6)
 
