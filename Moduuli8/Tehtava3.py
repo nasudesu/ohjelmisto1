@@ -23,7 +23,6 @@ def location1(code):
         point1.append(rivi[1])
     return point1
 
-code1 = input("Anna ICAO-koodi1: ")
 def location2(code):
     global point2
     sql = "SELECT latitude_deg, longitude_deg " \
@@ -38,6 +37,7 @@ def location2(code):
         point2.append(rivi[1])
     return point2
 
+code1 = input("Anna ICAO-koodi1: ")
 code2 = input("Anna ICAO-koodi2: ")
 
 print(f"Maitten välinen etäisyys: "

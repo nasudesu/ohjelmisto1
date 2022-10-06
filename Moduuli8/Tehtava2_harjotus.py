@@ -1,3 +1,4 @@
+
 import mysql.connector
 
 connection = mysql.connector.connect(
@@ -14,7 +15,6 @@ def maatunnus_haku(FI):
           " FROM airport" \
           " WHERE airport.iso_country = '" + FI + "'" \
           " GROUP BY type"
-    print(sql)
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
