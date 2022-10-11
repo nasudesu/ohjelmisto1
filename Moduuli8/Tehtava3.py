@@ -42,3 +42,5 @@ code2 = input("Anna ICAO-koodi2: ")
 
 print(f"Maitten välinen etäisyys: "
       f"{geodesic(location1(code1), location2(code2)).km}km.")
+
+
