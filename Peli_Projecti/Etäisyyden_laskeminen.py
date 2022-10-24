@@ -1,5 +1,7 @@
+import geopy
 import mysql.connector
 import random
+from geopy.distance import geodesic
 
 yhteys = mysql.connector.connect(
     host='127.0.0.1',
@@ -38,7 +40,12 @@ def lahtokentta():
     return tulos
 
 
-print(f"Olet helsingin lentokentällä")
+def loppukentta():
+    sql = "SELECT latitude_deg, longitude_deg FROM airport WHERE ident = 'LEMD'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    return tulos
 
 
 def valilaskukentta1():
@@ -90,72 +97,22 @@ def valilaskukentta5():
         kentat5 = [random.choice(tulos), random.choice(tulos)]
         return kentat5
 
-
-lentokentat = []
-optimikentat = []
-kayttajan_valinnat = []
-
-
-
-lista = valilaskukentta1()
-kysymys1 = input(f"Valitse ensimmäinen kenttä: a. {lista[0]}, b. {lista[1]}")
-if kysymys1 == "a":
-    kayttajan_valinnat.append(lista[0])
-else:
-     kayttajan_valinnat.append(lista[1])
-
-
-
-lista = valilaskukentta2()
-kysymys2 = input(f"Valitse toinen kenttä: a. {lista[0]}, b. {lista[1]}")
-if kysymys2 == "a":
-    kayttajan_valinnat.append(lista[0])
-else:
-    kayttajan_valinnat.append(lista[1])
-
-
-
-lista = valilaskukentta3()
-kysymys3 = input(f"Valitse kolmas kenttä: a. {lista[0]}, b. {lista[1]}")
-if kysymys3 == "a":
-    kayttajan_valinnat.append(lista[0])
-else:
-    kayttajan_valinnat.append(lista[1])
-
-
-
-lista = valilaskukentta4()
-kysymys4 = input(f"Valitse neljäs kenttä: a. {lista[0]}, b. {lista[1]}")
-if kysymys4 == "a":
-    kayttajan_valinnat.append(lista[0])
-else:
-    kayttajan_valinnat.append(lista[1])
-
-
-
-lista = valilaskukentta5()
-kysymys5 = input(f"Valitse viides kenttä: a. {lista[0]}, b. {lista[1]}")
-if kysymys5 == "a":
-    kayttajan_valinnat.append(lista[0])
-else:
-    kayttajan_valinnat.append(lista[1])
-
-
-korjatut1 = []
-for j in kayttajan_valinnat:
-    name = str(j)
-    delthese = "[()],.'¨"
-    for char in delthese:
-        name = name.replace(char, "")
-    korjatut1.append(name)
-print(korjatut1)
-
-
-
+def sijainti(name):
+    sql = "SELECT latitude_deg, longitude_deg FROM airport WHERE ident = '" + name + "'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    return tulos
 
 def kokonaismatka(lentokentat):
-    return 1000
-
+    etaisyydetyhteensa = 0
+    for i in range(len(lentokentat) - 1):
+        koordinaatit1 = sijainti(lentokentat[i])
+        koordinaatit2 = sijainti(lentokentat[i + 1])
+        etaisyys = geopy.distance.distance(koordinaatit1, koordinaatit2).km
+        etaisyydetyhteensa += etaisyys
+        print(etaisyydetyhteensa)
+        return
 
 def optimaalinen_reitti(lahtokentta, loppukentta, vaihtoehdot):
     lyhyinmatka = (1000000, [])
@@ -170,10 +127,44 @@ def optimaalinen_reitti(lahtokentta, loppukentta, vaihtoehdot):
                             lyhyinmatka = (matka_km, reitti)
     return lyhyinmatka
 
+vaihtoehdot = (valilaskukentta1(), valilaskukentta2(), valilaskukentta3(), valilaskukentta4(), valilaskukentta5())
+optimikentat = []
+kayttajan_valinnat = []
+lentokentat = [lentokentta("EFHK"), kayttajan_valinnat, lentokentta("LEMD")]
 
-def hiilijalanjalki(lentokentat):
-    co2 = 250 * kokonaismatka(lentokentat)
-    return co2
+for i in range(5):
+    latmin = 60 - i*5
+    latmax = 55 - i*5
+    lista = valilaskukentta(latmin, latmax)
+    vastaus = input(f"Valitse {i+1}. kenttä: a. {lista[0][0]}, b. {lista[1][0]}")
+    if vastaus == "a":
+        kayttajan_valinnat.append(lista[0])
+    else:
+        kayttajan_valinnat.append(lista[1])
 
 
-print(hiilijalanjalki(lentokentat))
+korjatut1 = []
+for j in kayttajan_valinnat:
+    name = str(j)
+    delthese = "[()],.'¨"
+    for char in delthese:
+        name = name.replace(char, "")
+    korjatut1.append(name)
+
+sijainti = []
+
+for rivi in korjatut1:
+    sql_1 = "SELECT latitude_deg, longitude_deg FROM airport WHERE name = '" + rivi + "'and type = 'large_airport' and continent = 'EU' "
+    kursori = yhteys.cursor()
+    kursori.execute(sql_1)
+    tulos = kursori.fetchall()
+    sijainti.append(tulos)
+
+etaisyys1 = (f"ekanen etäisyys on: {geodesic(lahtokentta(), sijainti[0]).km:.2f}.km ")
+etaisyys2 = (f"toinen etäisyys on: {geodesic(sijainti[0], sijainti[1]).km:.2f}.km ")
+etaisyys3 = (f"kolmas etäisyys on: {geodesic(sijainti[1], sijainti[2]).km:.2f}.km ")
+etaisyys4 = (f"neljäs etäisyys on: {geodesic(sijainti[2], sijainti[3]).km:.2f}.km ")
+etaisyys5 = (f"viides etäisyys on: {geodesic(sijainti[3], sijainti[4]).km:.2f}.km ")
+
+print(etaisyys1, etaisyys2, etaisyys3, etaisyys4, etaisyys5)
+print(sijainti)
