@@ -39,8 +39,17 @@ class Car:
 
 # Pääohjelma
 cars = []
+
 for i in range(10):
     cars.append(Car(f"ABC-{i + 1}", random.randint(100, 200), 0, 0))
 
-for i in cars:
-    print(i)
+stopper = False
+while stopper == False:
+    for i in cars:
+        i.accel(random.randint(-10, 15))
+        i.travel(1)
+        if i.desttralev > 10000:
+            for n in cars:
+                print(n.regnum, n.topspeed, n.curspeed, n.desttralev)
+                stopper = True
+
