@@ -10,9 +10,8 @@ class Maalaamo:
 
 #Pääohjelma
 
+penamaalaamo = Maalaamo()
 kotsa = Auto("ABC-123", "Ruskea")
 print(kotsa.vari)
-penamaalaamo = Maalaamo()
 penamaalaamo.maalaa(kotsa, "Punainen")
 print(kotsa.vari)
-
