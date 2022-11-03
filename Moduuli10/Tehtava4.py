@@ -54,13 +54,11 @@ race = Race("Romuralli", 8000, cars)
 
 round1 = 1
 stopper = False
-print("Kierros 1")
 while not stopper:
     race.onehour()
     stopper = race.over()
     if round1 % 10 == 0:
         race.printlist()
-        print(f"Kierros {round1}")
+        print(f"Kierrosta {round1}")
     round1 += 1
 race.printlist()
-
