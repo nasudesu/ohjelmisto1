@@ -45,8 +45,7 @@ class House:
 
 
 house = House(1, 10, 3)
-house.move_ele(1, 5)
-house.move_ele(2, 9)
-house.move_ele(1, 8)
-
-house.firealarm()
+#house.move_ele(1, 5)
+#house.move_ele(2, 9)
+#house.move_ele(1, 8)
+house.move_ele(1, 7)

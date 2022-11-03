@@ -20,10 +20,10 @@ class Car:
             self.curspeed = 0
 
     def travel(self, hour):
-        self.desttralev = self.desttralev + (self.curspeed * hour)
+        self.desttralev += self.curspeed * hour
 
 
-#Pääohjelma
+# Pääohjelma
 
 car1 = Car("ABC-123", 142, 0, 0)
 print(f"Auton1 rekkari: {car1.regnum} \n"
