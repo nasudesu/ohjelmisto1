@@ -25,6 +25,7 @@ class Battery_car(Car):
         print(f"Sähköauto1\n"
               f"Rekkari: {self.regnum} "
               f"Huippunopeus: {self.topspeed} "
+              f"Moottori: {self.battery_capacity}kWh "
               f"Ajanut: {self.desttralev} km (matkan)")
 
 
@@ -37,6 +38,7 @@ class Engine_car(Car):
         print(f"Bensaauto1\n"
               f"Rekkari: {self.regnum} "
               f"Huippunopeus: {self.topspeed} "
+              f"Moottori: {self.gas_tank}l "
               f"Ajanut: {self.desttralev} km (matkan)")
 
 
