@@ -18,5 +18,5 @@
 //document.querySelector("#target1").innerHTML = ikaint;
 
 
-let nimi = prompt("Anna nimesi");
+let nimi = prompt("Whats is your name");
 document.querySelector("#target").innerHTML = "Moi "+nimi+"!";
