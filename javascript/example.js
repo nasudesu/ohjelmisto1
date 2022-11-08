@@ -1,4 +1,4 @@
-'use strict';
+
 
 //console.log('This is text is printed to the console.');
 
@@ -18,5 +18,13 @@
 //document.querySelector("#target1").innerHTML = ikaint;
 
 
-let nimi = prompt("Anna nimesi");
-document.querySelector("#target").innerHTML = "Moi "+nimi+"!";
+//let nimi = prompt("Anna nimesi");
+//document.querySelector("#target").innerHTML = "Moi "+nimi+"!";
+
+//const age = parseInt(prompt("Anna nimesi"));
+//if (age < 18)
+//  document.querySelector('#target').innerHTML = "youare uder age"
+//else if (age >= 18)
+//  document.querySelector('#target').innerHTML = "You are adult"
+
+
