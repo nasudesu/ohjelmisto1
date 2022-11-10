@@ -7,4 +7,3 @@ for i in range(int(kuutiot)):
     print(noppa)
     summa += noppa
 print(f"Noppien summa: {summa}")
-
