@@ -1,11 +1,11 @@
+user_input = int(input("Anna kokonaisluku: "))
 
-
-
-
-luku = int(input("anna kokonais luku: "))
-for i in range(2, luku):
-    if luku % i == 0:
-        print("ei ole alkuluku")
+for x in range(2, user_input):
+    if user_input % x == 0:
+        print(f"Luku {user_input} ei ole alkuluku!")
         break
 else:
-    print("on alkuluku")
+    print(f"Luku {user_input} on alkuluku!")
+
+
+

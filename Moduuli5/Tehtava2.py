@@ -1,7 +1,3 @@
-
-
-
-
 list_of_numbers = []
 first_five_in_list = 5
 while True:

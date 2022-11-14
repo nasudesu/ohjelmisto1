@@ -4,18 +4,18 @@
 #mielivaltaisessa järjestyksessä. Käytä joukkotietorakennetta nimien tallentamiseen.
 
 
-nimilista = set()
+nimi_lista = set()
 
 while True:
     newname = input("Anna uusi nimi!: ")
-    if newname in nimilista:
+    if newname in nimi_lista:
         print("Aiemmin syötetty nimi.")
     elif newname.lower() == "":
         break
     else:
         print("Uusi nimi")
-    nimilista.add(newname)
+    nimi_lista.add(newname)
 
 print("---Nimet listassa---")
-for j in nimilista:
-    print(j)
+for i in nimi_lista:
+    print(i)
