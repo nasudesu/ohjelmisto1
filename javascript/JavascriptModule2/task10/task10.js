@@ -14,7 +14,7 @@ function listofcandy(kek) {
 let userinput = prompt(`Number of candidates`)
 let candidate = listofcandy(userinput)
 let voters = prompt(`Number of voters`)
-console.log(candidate)
+
 for (let i = 0; i < voters; i++) {
   let vote = prompt(`Voter ${i+1} chose candidate to vote for`)
   for (let j = 0; j < candidate.length; j++) {
@@ -23,5 +23,11 @@ for (let i = 0; i < voters; i++) {
     }
   }
 }
-console.log(candidate)
+candidate.sort((a, b) => (a.votes > b.votes) ? 1 : -1)
+candidate.reverse()
+console.log(`The winner is ${candidate[0].name} with ${candidate[0].votes} votes`)
+console.log(`Result:`)
+for (let i = 0; i < candidate.length; i++) {
+  console.log(`${candidate[i].name} with ${candidate[i].votes}votes`)
+}
 
