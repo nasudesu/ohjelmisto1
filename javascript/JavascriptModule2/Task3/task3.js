@@ -2,12 +2,12 @@
 
 const participantslist = []
 
-let participants = parseInt(prompt(`Number of participants?`))
 
-for (let i = 1; i < participants+1; i++) {
-  let names = participantslist.push(prompt(`Participant ${i} name?`))
+for (let i = 1; i < 7; i++) {
+  let names = participantslist.push(prompt(`Names of six dogs ${i}`))
 }
 participantslist.sort()
+participantslist.reverse()
 
 for (let i = 0; i < participantslist.length; i++) {
   const node = document.createElement("li")
@@ -15,3 +15,4 @@ for (let i = 0; i < participantslist.length; i++) {
   node.appendChild(text)
   document.getElementById("target").appendChild(node)
 }
+console.log(participantslist)
