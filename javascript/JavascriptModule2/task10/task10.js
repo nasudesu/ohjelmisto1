@@ -30,4 +30,3 @@ console.log(`Result:`)
 for (let i = 0; i < candidate.length; i++) {
   console.log(`${candidate[i].name} with ${candidate[i].votes}votes`)
 }
-
