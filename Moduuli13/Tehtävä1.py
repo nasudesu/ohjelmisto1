@@ -10,19 +10,16 @@ def prime_num(num):
         p_num = int(num)
         if p_num <= 1:
             response_dict = {"Number": p_num, "IsPrimenum": False}
-            response_json = json.dumps(response_dict)
-            return Response(response=response_json, status=200, mimetype="application/json")
+            return response_dict
         else:
             for i in range(2, p_num+1):
                 if p_num % i == 0:
                     if i != p_num:
                         response_dict = {"Number": p_num, "IsPrimenum": False}
-                        response_json = json.dumps(response_dict)
-                        return Response(response=response_json, status=200, mimetype="application/json")
+                        return response_dict
                     else:
                         response_dict = {"Number": p_num, "IsPrimenum": True}
-                        response_json = json.dumps(response_dict)
-                        return Response(response=response_json, status=200, mimetype="application/json")
+                        return response_dict
     except ValueError:
         response_json = json.dumps('"message": not a number?')
         return Response(response=response_json, status=400)
