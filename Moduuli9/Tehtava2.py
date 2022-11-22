@@ -16,7 +16,7 @@ class Car:
         self.regnum = regnum
 
     def accel(self, speed):
-        self.curspeed = self.curspeed + speed
+        self.curspeed += speed
         if self.curspeed > self.topspeed:
             self.curspeed = self.topspeed
         elif self.curspeed < 0:
