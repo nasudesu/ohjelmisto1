@@ -10,4 +10,4 @@ try:
         json_answer = answer.json()
         print(json_answer["value"])
 except requests.exceptions.RequestException as e:
-    print ("Invalid request.")
+    print("Invalid request.")

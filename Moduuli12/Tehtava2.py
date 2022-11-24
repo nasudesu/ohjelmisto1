@@ -1,4 +1,4 @@
-import requests  # handles API requests, requires package install.
+import requests
 
 key = "8c87a65e1593be9464502d0a55e73f06"
 location = input("Give city name: ")
@@ -15,4 +15,4 @@ try:
         print("Search returned no results.")
 
 except requests.exceptions.RequestException as e:
-    print("Rikki")
+    print("Broken")
